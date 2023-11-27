@@ -1,0 +1,190 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Hotel_Management_System.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <title></title>
+    <%--jquery--%>
+    <script src="/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+
+    <%--bootstrap css--%>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <%--bootstrap js--%>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <%--fontawesome css--%>
+    <link href="/fontawesome/css/all.css" rel="stylesheet" />
+    <%--our custom css--%>
+    <link href="/css/customstylesheet.css" rel="stylesheet" />
+
+    <%--popper js--%>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    
+    <%--Data Table css--%>
+    <link href="/datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%--Data Table js--%>
+    <script src="/datatables/js/jquery.dataTables.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="/imgs/LogoC.png" />
+
+    <%--Paypal Javascript--%>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&locale=en_US"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <%--Navigation Bar--%>
+        <div style="font-family:Arial;">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #212529">
+                <div class="container-fluid justify-content-between">
+                    <%--/imgs/Phonto/logo%201.png--%>
+                    <%--/imgs/Phonto/logo%202.png--%>
+                    <a class="navbar-brand me-2" href="/Public/HomePage.aspx">
+                        <img src="/imgs/Phonto/Logo3.png" height="32" alt="" loading="lazy" style="margin-top: -1px;"/>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                     <div class="collapse navbar-collapse" id="navbarSupportedContent"">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" id="homepage" runat="server" href="/Public/HomePage.aspx">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="aboutpage" runat="server" href="/Public/About Us.aspx">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="contactpage" runat="server" href="/Public/Contact Us.aspx">Contact Us</a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="dashboardButton" runat="server" OnClick="dashboardButton_Click">Dashboard</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="roomDetailsButton" runat="server" OnClick="roomDetailsButton_Click">Rooms</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="serviceButton" runat="server" OnClick="serviceButton_Click">Services</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="policiesButton" runat="server" OnClick="policiesButton_Click">Hotel Policy</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="bookButton" runat="server" OnClick="bookButton_Click">Book Rooms</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="findReservation" runat="server" OnClick="findReservation_Click">Find Reservation</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="logoutButton" runat="server" OnClick="logoutButton_Click">Logout</asp:LinkButton>
+                            </li>
+                            <li class="nav-item active">
+                                <asp:LinkButton class="nav-link" ID="staffProfileButton" runat="server" OnClick="staffProfileButton_Click">Hello user</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <%--Main Content Placeholder--%>
+        <div id="maincontent">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <%--End of Main Content Placeholder--%>
+
+        <%--Footer Start--%>
+        <footer id="footermain" class="text-center text-lg-start bg-dark text-center text-white">
+              <!-- Section: Social media -->
+              <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+
+                    <!-- Left -->
+                    <div class="me-5 d-none d-lg-block">
+                        <span>Get connected with us on social networks:</span>
+                    </div>
+
+                    <div>
+                          <a href="https://www.facebook.com/" class="me-4 text-reset"><i class="fab fa-facebook-f"></i></a>
+
+                          <a href="https://www.twitter.com/" class="me-4 text-reset"><i class="fab fa-twitter"></i></a>
+
+                          <a href="https://www.google.com/" class="me-4 text-reset"><i class="fab fa-google"></i></a>
+
+                          <a href="https://www.instagram.com/" class="me-4 text-reset"><i class="fab fa-instagram"></i></a>
+
+                          <a href="https://www.linkedin.com/" class="me-4 text-reset"><i class="fab fa-linkedin"></i></a>
+
+                          <a href="https://www.github.com/" class="me-4 text-reset"><i class="fab fa-github"></i></a>
+                    </div>
+                    <!-- Right -->
+              </section>
+              <!-- Section: Social media -->
+
+              <!-- Section: Links  -->
+              <section class="">
+                    <div class="container text-center text-md-start mt-5">
+
+                          <div class="row mt-3">
+
+                                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                    <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-building me-3"></i>Ccafe Hotel</h6>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                </div>
+
+                                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                    <!-- Links -->
+                                    <h6 class="text-uppercase fw-bold mb-4">Management</h6>
+                                    <p><asp:LinkButton class="text-reset" ID="AdminLogin" runat="server" OnClick="AdminLogin_Click">Admin Login</asp:LinkButton></p>
+                                    <p><asp:LinkButton class="text-reset" ID="StaffLogin" runat="server" OnClick="StaffLogin_Click">Staff Login</asp:LinkButton></p>
+                                </div>
+
+                                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                      <!-- Links -->
+                                    <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+                                    <p><a href="/Public/Rooms.aspx" class="text-reset">Rooms</a></p>
+                                    <p><a href="/Public/Search Room.aspx" class="text-reset">Search Room</a></p>
+                                    <p><a href="/Public/HotelServices/Food Service.aspx" class="text-reset">F & D Service</a></p>
+                                    <p><a href="/Public/HotelServices/RoomCleaning.aspx" class="text-reset">Housekeeping</a></p>
+                                </div>
+                            <!-- Grid column -->
+
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                              <!-- Links -->
+                              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                              <p><i class="fas fa-map-marker-alt me-3"></i> Centro, 17, Jalan Batu Tiga Lama</p>
+                              <p><i class="fas fa-envelope me-3"></i> info@example.com</p>
+                              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                            </div>
+                            <!-- Grid column -->
+                          </div>
+                      <!-- Grid row -->
+                    </div>
+              </section>
+              <!-- Section: Links  -->
+
+              <!-- Copyright -->
+              <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2021 Copyright: CCafe Hotel
+                <a class="text-reset fw-bold" href="#">@Adam Chong Karr Weng</a>
+              </div>
+              <!-- Copyright -->
+            </footer>
+        <%--Footer End--%>
+    </form>
+</body>
+</html>
